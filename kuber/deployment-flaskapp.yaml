@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - name: web
+        image: perhamm/testapp:latest
+        env:
+        - name: FLASK_ENV
+          value: "development"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 250Mi
+          limits:
+            cpu: 100m
+            memory: 250Mi
+        ports:
+          - containerPort: 5000
+

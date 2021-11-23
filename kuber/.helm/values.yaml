@@ -1,0 +1,8 @@
+
+image: perhamm/testapp
+imageTag: latest
+
+
+ingress:
+#  host: flask.s015937.edu.slurm.io
+  host: hello-world.info

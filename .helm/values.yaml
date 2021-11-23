@@ -1,0 +1,9 @@
+
+image: registry.slurm.io/edu/cicd-app/
+imageTag: master.1
+imagePullSecret: cicd-gitlab-registry
+
+
+
+ingress:
+  host: flask.s034150.edu.slurm.io
